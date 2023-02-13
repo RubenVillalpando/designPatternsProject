@@ -1,0 +1,950 @@
+{
+    "QUESTIONS": [
+        {
+            "question": "Which of these principles are NOT mentioned by Ross Olsen in his book Desing Patterns in Ruby?",
+            "answers": [
+                {
+                    "answer": "Separate out the things that change from those that stay the same.",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Program to an interface, not an implementation",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Prefer composition over inheritance",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "You are going to need it",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "How many patterns did the Gang of Four create?",
+            "answers": [
+                {
+                    "answer": "14",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "23",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "13",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "24",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "This pattern builds an abstract base class with a skeletal method",
+            "answers": [
+                {
+                    "answer": "Abstract Factory",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Adapter pattern",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Template method",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Singleton pattern",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "A hook method is a non-abstract method that can be overridden in the concrete classes of the Template Method pattern",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Hook methods permit classes to",
+            "answers": [
+                {
+                    "answer": "override the base implementation and do something different",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "to simply accept the default implementation",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "use only the super class implementation",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Add implementation to other methods",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "This pattern consist of defining a familily of objects, which all do the same thing, but each one does its thing a little differently.",
+            "answers": [
+                {
+                    "answer": "Strategy pattern",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Factory method",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder pattern",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "When do we select the specific implementation we want to use when utilizing the Strategy method?",
+            "answers": [
+                {
+                    "answer": "We make our decision when we pick our concrete subclass",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "We make our decision by selecting a strategy class at runtime",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "We make our decision when sending a concrete parameter",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "We make our decision when by selecting a strategy class at development time",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "What is the 'context' accoding to the GoF when using the Strategy Pattern?",
+            "answers": [
+                {
+                    "answer": "The user of the strategy",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "The method used for the strategy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "The data send by the strategy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "The object created by the strategy",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "How the GoF called the objects that are interested in getting the news in the Observer pattern?",
+            "answers": [
+                {
+                    "answer": "Subjects",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Observers",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Hooks",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Audience",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "How the GoF called the class with the news in the Observer pattern?",
+            "answers": [
+                {
+                    "answer": "Subject class",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Observer class",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Hook class",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Reporter class",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "When should you NOT refactor?",
+            "answers": [
+                {
+                    "answer": "When you just don't agree with some lines of code",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "When you want to add a new feature to some software",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "When you need to fix a bug",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "When you review your code",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Refactoring your code is helpful because it helps code easier to maintain, and it makes the program faster",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "This unit testing strategy consists of writing a failing test, making it pass, and then refactoring the code to the best of your ability.",
+            "answers": [
+                {
+                    "answer": "Red/Green/Refactor",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Fail/Pass/Refactor",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Fail/Pass/Change",
+                    "isCorrect": false
+                },
+                {
+                    "answer": " Red/Green/Change",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "You should start programming and then create the test",
+            "answers": [
+                {
+                    "answer": "False",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "True",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Is the object that crosses the chasm between the interface that you have and the interface that you need called",
+            "answers": [
+                {
+                    "answer": "Adapter",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Bridge",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Template",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Adapters preserve encapsulation at the cost of some complexity.",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "You will know that you need to use this pattern when you are trying to build a hierarchy or tree of objects, and you do not want the code that uses the tree to constantly have to worry about whether it is dealing with a single object or a whole bushy branch of the tree.",
+            "answers": [
+                {
+                    "answer": "Decorator",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Composite",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Singleton",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Command",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "What is the dual role of a composite object?",
+            "answers": [
+                {
+                    "answer": "On the one hand, it's a component; on the other hand, it is a collection of components",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "On the one hand, it's a component; on the other hand, it is a collection of functions",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "sOn the one hand, it's a class; on the other hand, it is a collection of objects",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "On the one hand, it's a class; on the other hand, it is a collection of components",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "This pattern provides the outside world with a sort of movable pointer into the objects stored inside an otherwise opaque aggregate object",
+            "answers": [
+                {
+                    "answer": "Decorator",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Abstract Factory",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Iterator",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Interpreter",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "If the iterator is a separate object from the aggregate, it is called external iterator.",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Because all of the iterating action occurs inside the aggregate object, the code block-based iterators are called...",
+            "answers": [
+                {
+                    "answer": "External iterators",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Internal iterators",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "Sometimes we need to wrap instructions in a kind of a postcard: Dear database, when you get this, delete row number 7843. Postcards are hard to come by in code, but this pattern is tailor made for this situation.",
+            "answers": [
+                {
+                    "answer": "Decorator",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Adapter",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Command",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "Maybe you have the right object, but it is over there, someplace else on the network, and you don’t want the client code to care about its location. Or perhaps you want to delay creating your object as long as possible, or control access to it. In this circumstance, you may need this pattern",
+            "answers": [
+                {
+                    "answer": "Command",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Proxy",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Strategy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Composite",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "It pretends to be the real object, but it does not even have a reference to the real object until the client code calls a method.",
+            "answers": [
+                {
+                    "answer": "False proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Protection proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Remote proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Virtual proxy",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "This is a dynamic alternative to the decorator pattern",
+            "answers": [
+                {
+                    "answer": "Wrapping Methods",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Decorating with Modules",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Formal Decoration",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Creating concrete components",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "If you only ever have one instance of a class and a lot of code that needs access to that instance, it seems silly to pass the object from one method to another. In this kind of situation, the GoF suggest that you build a ________—a class that can have only one instance and that provides global access to that one instance.",
+            "answers": [
+                {
+                    "answer": "Decorator",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Singleton",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Adapter",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Creating the singleton instance before you actually need it is called eager instantiation",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "In the factory method, on the one hand, we have the _____, the base and concrete classes that contain the factory methods. On the other hand, we have the ____, the objects that are being created.",
+            "answers": [
+                {
+                    "answer": "Manufacters, Outcomes",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Products, creators",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Outcomes, manufacters",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Creators, products",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "With this pattern you can solve the problem that you need to create sets of compatible objects. The solution is that you write a separate class to handle that creation.",
+            "answers": [
+                {
+                    "answer": "Factory pattern",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Abstract Factory",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Adapter pattern",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder pattern",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "The ____ class takes charge of assembling all of the components of a complex object",
+            "answers": [
+                {
+                    "answer": "Decorator",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Builder",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Singleton",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Command",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "The reset method will delete the builder instance and won't let you reuse it.",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "The GOF called the client of the builder object the ____ because it directs the builder in the construction of the new object (called the _____).",
+            "answers": [
+                {
+                    "answer": "Leader, product",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Supervisor, outcome",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Director, product",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Leader, outcome",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "The _____ pattern is built around a very simple idea: Some programming problems are best solved by creating a specialized language and expressing the solution in that language.",
+            "answers": [
+                {
+                    "answer": "Adapter",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Interpreter",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Command",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Factory method",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "How is the data structure created by the parser in the Interpreter pattern called?",
+            "answers": [
+                {
+                    "answer": "Abstract semantic graph",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Abstract syntax tree",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Abstract semantic tree",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Interpretable syntax tree",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "How are the leaf nodes of the AST called?",
+            "answers": [
+                {
+                    "answer": "Leaves, duh",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "End nodes",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Nonterminals",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Terminals",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "What does the terminals ot the AST represent?",
+            "answers": [
+                {
+                    "answer": "The most basic building blocks of the language",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "The higher-order concepts in the language",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Is a general repeatable solution to a commonly occurring problem in software design",
+            "answers": [
+                {
+                    "answer": "Antipattern",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Refactoring",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Design pattern",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Development paradigms.",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "These design patterns are all about class instantiation",
+            "answers": [
+                {
+                    "answer": "Creational design patterns",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Structural design patterns",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Behavioral design patterns",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "These design patterns are all about Class and Object composition",
+            "answers": [
+                {
+                    "answer": "Creational design patterns",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Structural design patterns",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Behavioral design patterns",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "These are examples of behavioral design patterns",
+            "answers": [
+                {
+                    "answer": "Visitor, Decorator, Adapter, Proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Iterator, Adapter, Decorator, Proxy",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Adapter, Command, Factory method, Builder",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Interpreter, Iterator, Template method, Visitor",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "Is a literary form that describes a commonly occurring solution to a problem that generates decidedly negative consequences",
+            "answers": [
+                {
+                    "answer": "Antipattern",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Refactoring",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Design pattern",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Development paradigms.",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "AntiPatterns highlight the most common problems that face the software industry and provide the tools to enable you to recognize these problems and to determine their underlying causes",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Focus on the system-level and enterprise-level structure of applications and components",
+            "answers": [
+                {
+                    "answer": "Software Development AntiPatterns",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Software Architecture AntiPatterns",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Software Project Management AntiPatterns",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Identify some of the key scenarios in which these issues are destructive to software processes.",
+            "answers": [
+                {
+                    "answer": "Software Development AntiPatterns",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Software Architecture AntiPatterns",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Software Project Management AntiPatterns",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "These are examples of Software Development AntiPatterns",
+            "answers": [
+                {
+                    "answer": "Jumble, Cover Your Assets, Swiss Army Knife, and Wolf Ticket",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "The blob, lava flow, poltergeists, and dead end",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Death by Planning, Fear of Success, Corncob, and Smoke and Mirrors",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Death by Planning, Lava flow, Jumble, and Poltergeists ",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "These are examples of Software Architecture AntiPatterns",
+            "answers": [
+                {
+                    "answer": "Jumble, Cover Your Assets, Swiss Army Knife, and Wolf Ticket",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "The blob, lava flow, poltergeists, and dead end",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Death by Planning, Fear of Success, Corncob, and Smoke and Mirrors",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Death by Planning, Lava flow, Jumble, and Poltergeists ",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "These are examples of Software Project Management AntiPatterns",
+            "answers": [
+                {
+                    "answer": "Jumble, Cover Your Assets, Swiss Army Knife, and Wolf Ticket",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "The blob, lava flow, poltergeists, and dead end",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Death by Planning, Fear of Success, Corncob, and Smoke and Mirrors",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Death by Planning, Lava flow, Jumble, and Poltergeists ",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "What is not important to keep in mind while refactoring?",
+            "answers": [
+                {
+                    "answer": "Pursue truth and beauty ",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Get used to picking a goal",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Stop when you are unsure",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Backtrack",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "It's one of the four Big Refactorings",
+            "answers": [
+                {
+                    "answer": "Tease Apart Inheritance",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Pull Up Method",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Rename Method",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Add Parameter",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "The concept of design patterns has been criticized by some in the field of computer science",
+            "answers": [
+                {
+                    "answer": "True",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "False",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

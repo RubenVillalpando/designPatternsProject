@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+<head>
+<title>LambdaHandlerScores</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<link href='../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  function popupCode(url) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  
+  function toggleCode(id) {
+    var code = document.getElementById(id)
+  
+    code.style.display = code.style.display != 'block' ? 'block' : 'none'
+    return true
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+</script>
+</head>
+<body class='page'>
+<div class='class' id='wrapper'>
+<div class='header'>
+<h1 class='name'><span class='type'>class</span>
+LambdaHandlerScores
+</h1>
+<ol class='paths'>
+<li>
+<a href="../files/src/models/lambda_scores_rb.html">src/models/lambda_scores.rb</a>
+</li>
+</ol>
+<div class='parent'>
+Superclass:
+<strong><a href="LambdaHandlerTemplate.html">LambdaHandlerTemplate</a></strong>
+</div>
+</div>
+<div id='content'>
+<div id='text'>
+<div id='description'>
+<p>The <code>LambdaHandlerScores</code> is an implementation of the <a href="LambdaHandlerTemplate.html"><code>::LambdaHandlerTemplate</code></a> class It overrides the ::handle_post and ::handle_get functions to recognize them as  valid methods.</p>
+</div>
+<div id='method-list'>
+<h2>Methods</h2>
+<h3>Public Instance</h3>
+<ol>
+<li><a href="#method-i-handle_get">handle_get</a></li>
+<li><a href="#method-i-handle_post">handle_post</a></li>
+</ol>
+</div>
+<div id='context'>
+</div>
+<div id='section'>
+<div id='methods'>
+<h2>Public Instance methods</h2>
+<div class='method public-instance' id='method-method-i-handle_get'>
+<a name='method-i-handle_get'></a>
+<div class='synopsis'>
+<span class='name'>handle_get</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handles the get method as a valid request</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Parameter</td><td><table class="rdoc-list note-list"><tbody><tr><td class='label'>event</td><td>
+<p>The event that is fired when the lambda is triggered</p>
+</td></tr></tbody></table>
+</td></tr><tr><td class='label'>Returns</td><td>
+<p>A hash with at most the top 10 scores and its corresponding username</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_get-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_get-source'><span class="ruby-comment"># File src/models/lambda_scores.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_get</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">scores</span> = <span class="ruby-identifier">get_scores</span>()
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">scores</span>
+        <span class="ruby-identifier">return_valid_get_response</span>(<span class="ruby-identifier">scores</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">return_error_response</span>(<span class="ruby-string">&quot;There was an error accesing the scores from the database&quot;</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_post'>
+<a name='method-i-handle_post'></a>
+<div class='synopsis'>
+<span class='name'>handle_post</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handles the get method as a valid request for the scores</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Parameter</td><td><table class="rdoc-list note-list"><tbody><tr><td class='label'>event</td><td>
+<p>The event that is fired when the lambda is triggered</p>
+</td></tr></tbody></table>
+</td></tr><tr><td class='label'>Returns</td><td>
+<p>A message indicating wether the post method was successful</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_post-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_post-source'><span class="ruby-comment"># File src/models/lambda_scores.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_post</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">body</span> = <span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;body&#39;</span>]
+    <span class="ruby-identifier">dbUpdated</span> = <span class="ruby-identifier">post_score</span>(<span class="ruby-identifier">body</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">dbUpdated</span> 
+        <span class="ruby-identifier">return_valid_post_response</span>(<span class="ruby-string">&quot;Scores Table Updated&quot;</span>) 
+    <span class="ruby-keyword">else</span> 
+        <span class="ruby-identifier">return_error_response</span>(<span class="ruby-string">&quot;Error updating the scores table&quot;</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id='footer-push'></div>
+</div>
+<div id='footer'>
+<a href="https://github.com/jeremyevans/hanna-nouveau"><strong>Hanna Nouveau</strong> RDoc template</a>
+</div>
+</body>
+</html>

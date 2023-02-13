@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+<head>
+<title>LambdaHandlerTemplate</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<link href='../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  function popupCode(url) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  
+  function toggleCode(id) {
+    var code = document.getElementById(id)
+  
+    code.style.display = code.style.display != 'block' ? 'block' : 'none'
+    return true
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+</script>
+</head>
+<body class='page'>
+<div class='class' id='wrapper'>
+<div class='header'>
+<h1 class='name'><span class='type'>class</span>
+LambdaHandlerTemplate
+</h1>
+<ol class='paths'>
+<li>
+<a href="../files/src/models/lambda_handler_template_rb.html">src/models/lambda_handler_template.rb</a>
+</li>
+</ol>
+<div class='parent'>
+Superclass:
+<strong><a href="Object.html">Object</a></strong>
+</div>
+</div>
+<div id='content'>
+<div id='text'>
+<div id='description'>
+<p>The <code>LambdaHandlerTemplate</code> is an implementation of the <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">Template Method</a>. It allows you to create instances of various ::LambdaHandler classes. Each one with the same logic starting with the ::handle_request,  just overriding methods that the implementation will accept.</p>
+</div>
+<div id='method-list'>
+<h2>Methods</h2>
+<h3>Public Instance</h3>
+<ol>
+<li><a href="#method-i-handle_bad_method">handle_bad_method</a></li>
+<li><a href="#method-i-handle_delete">handle_delete</a></li>
+<li><a href="#method-i-handle_get">handle_get</a></li>
+<li><a href="#method-i-handle_post">handle_post</a></li>
+<li><a href="#method-i-handle_put">handle_put</a></li>
+<li><a href="#method-i-handle_request">handle_request</a></li>
+<li><a href="#method-i-make_response">make_response</a></li>
+<li><a href="#method-i-return_error_response">return_error_response</a></li>
+<li><a href="#method-i-return_valid_get_response">return_valid_get_response</a></li>
+<li><a href="#method-i-return_valid_post_response">return_valid_post_response</a></li>
+</ol>
+</div>
+<div id='context'>
+</div>
+<div id='section'>
+<div id='constants-list'>
+<h2>Constants</h2>
+<div class='name-list'>
+<table summary='Constants'>
+<tr class='top-aligned-row context-row'>
+<td class='context-item-name'>STATUS_BAD_REQUEST</td>
+<td>=</td>
+<td class='context-item-value'>400</td>
+<td>&nbsp;</td>
+<td class='context-item-desc'>
+<p>a Status code indicating that something went wrong</p>
+</td>
+</tr>
+<tr class='top-aligned-row context-row'>
+<td class='context-item-name'>STATUS_METHOD_NOT_ALLOWED</td>
+<td>=</td>
+<td class='context-item-value'>405</td>
+<td>&nbsp;</td>
+<td class='context-item-desc'>
+<p>a Status code indicating that an unallowed method is being used</p>
+</td>
+</tr>
+<tr class='top-aligned-row context-row'>
+<td class='context-item-name'>STATUS_OK</td>
+<td>=</td>
+<td class='context-item-value'>200</td>
+<td>&nbsp;</td>
+<td class='context-item-desc'>
+<p>a Status code indicating that all went well</p>
+</td>
+</tr>
+<tr class='top-aligned-row context-row'>
+<td class='context-item-name'>STATUS_UPDATED</td>
+<td>=</td>
+<td class='context-item-value'>201</td>
+<td>&nbsp;</td>
+<td class='context-item-desc'>
+<p>a Status code indicating that the DB was updated successfuly</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id='methods'>
+<h2>Public Instance methods</h2>
+<div class='method public-instance' id='method-method-i-handle_bad_method'>
+<a name='method-i-handle_bad_method'></a>
+<div class='synopsis'>
+<span class='name'>handle_bad_method</span><span class='arguments'>(method)</span>
+
+</div>
+<div class='description'>
+
+<p>Handles the situation when a non supported method is used</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_bad_method-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_bad_method-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_bad_method</span>(<span class="ruby-identifier">method</span>)
+    <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">STATUS_METHOD_NOT_ALLOWED</span>,
+    {<span class="ruby-value">message:</span> <span class="ruby-node">&quot;Method not supported: #{method}&quot;</span>})
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_delete'>
+<a name='method-i-handle_delete'></a>
+<div class='synopsis'>
+<span class='name'>handle_delete</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handle the delete request (is implemented as bad method by default)</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_delete-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_delete-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_delete</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;httpMethod&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_get'>
+<a name='method-i-handle_get'></a>
+<div class='synopsis'>
+<span class='name'>handle_get</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handle the get request (is implemented as bad method by default)</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_get-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_get-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_get</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;httpMethod&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_post'>
+<a name='method-i-handle_post'></a>
+<div class='synopsis'>
+<span class='name'>handle_post</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handle the post request (is implemented as bad method by default)</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_post-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_post-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_post</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;httpMethod&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_put'>
+<a name='method-i-handle_put'></a>
+<div class='synopsis'>
+<span class='name'>handle_put</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handle the put request (is implemented as bad method by default)</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_put-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_put-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_put</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;httpMethod&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-handle_request'>
+<a name='method-i-handle_request'></a>
+<div class='synopsis'>
+<span class='name'>handle_request</span><span class='arguments'>(event)</span>
+
+</div>
+<div class='description'>
+
+<p>Handle the request depending on what http request method that is used</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-handle_request-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-handle_request-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_request</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-identifier">method</span> = <span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;httpMethod&#39;</span>]
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">method</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;GET&#39;</span>
+        <span class="ruby-identifier">handle_get</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;POST&#39;</span>
+        <span class="ruby-identifier">handle_post</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;PUT&#39;</span>
+        <span class="ruby-identifier">handle_put</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;DELETE&#39;</span>
+        <span class="ruby-identifier">handle_delete</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">method</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-make_response'>
+<a name='method-i-make_response'></a>
+<div class='synopsis'>
+<span class='name'>make_response</span><span class='arguments'>(code, body)</span>
+
+</div>
+<div class='description'>
+
+<p>Builds the response that any return_… uses for code simplicity</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-make_response-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-make_response-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_response</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">body</span>)
+    {
+        <span class="ruby-value">statusCode:</span> <span class="ruby-identifier">code</span>,
+        <span class="ruby-value">headers:</span> {
+            <span class="ruby-string">&quot;Content-Type&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;application/json; charset=utf-8&quot;</span>
+        },
+        <span class="ruby-value">body:</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">body</span>)
+    }
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-return_error_response'>
+<a name='method-i-return_error_response'></a>
+<div class='synopsis'>
+<span class='name'>return_error_response</span><span class='arguments'>(message)</span>
+
+</div>
+<div class='description'>
+
+<p>Builds an error response with the message provided</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-return_error_response-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-return_error_response-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">return_error_response</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">STATUS_BAD_REQUEST</span>, {<span class="ruby-string">&quot;error&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">message</span>})
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-return_valid_get_response'>
+<a name='method-i-return_valid_get_response'></a>
+<div class='synopsis'>
+<span class='name'>return_valid_get_response</span><span class='arguments'>(body)</span>
+
+</div>
+<div class='description'>
+
+<p>Builds a valid response with the correct status and the body of  what the get path returns</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-return_valid_get_response-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-return_valid_get_response-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">return_valid_get_response</span>(<span class="ruby-identifier">body</span>)
+    <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">STATUS_OK</span>, <span class="ruby-identifier">body</span>)
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-return_valid_post_response'>
+<a name='method-i-return_valid_post_response'></a>
+<div class='synopsis'>
+<span class='name'>return_valid_post_response</span><span class='arguments'>(message)</span>
+
+</div>
+<div class='description'>
+
+<p>Builds a valid response with the correct status and the body of  what the post path uploads</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Returns</td><td>
+<p>A hash with the response body</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-return_valid_post_response-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-return_valid_post_response-source'><span class="ruby-comment"># File src/models/lambda_handler_template.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">return_valid_post_response</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">STATUS_UPDATED</span>, {<span class="ruby-string">&quot;success&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">message</span>})
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id='footer-push'></div>
+</div>
+<div id='footer'>
+<a href="https://github.com/jeremyevans/hanna-nouveau"><strong>Hanna Nouveau</strong> RDoc template</a>
+</div>
+</body>
+</html>

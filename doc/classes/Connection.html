@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+<head>
+<title>Connection</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<link href='../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  function popupCode(url) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  
+  function toggleCode(id) {
+    var code = document.getElementById(id)
+  
+    code.style.display = code.style.display != 'block' ? 'block' : 'none'
+    return true
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+</script>
+</head>
+<body class='page'>
+<div class='class' id='wrapper'>
+<div class='header'>
+<h1 class='name'><span class='type'>class</span>
+Connection
+</h1>
+<ol class='paths'>
+<li>
+<a href="../files/src/server_rb.html">src/server.rb</a>
+</li>
+</ol>
+<div class='parent'>
+Superclass:
+<strong><a href="Object.html">Object</a></strong>
+</div>
+</div>
+<div id='content'>
+<div id='text'>
+<div id='description'>
+<pre>Class to encapsulate the different Faraday connections used in the server
+It allows you to create instances of various connections</pre>
+
+<p>to call the different lambda functions for each microservice</p>
+</div>
+<div id='method-list'>
+<h2>Methods</h2>
+<h3>Public Class</h3>
+<ol>
+<li><a href="#method-c-new">new</a></li>
+</ol>
+<h3>Public Instance</h3>
+<ol>
+<li><a href="#method-i-get_info">get_info</a></li>
+<li><a href="#method-i-post_info">post_info</a></li>
+</ol>
+</div>
+<div id='context'>
+</div>
+<div id='section'>
+<div id='methods'>
+<h2>Public Class methods</h2>
+<div class='method public-class' id='method-method-c-new'>
+<a name='method-c-new'></a>
+<div class='synopsis'>
+<span class='name'>new</span><span class='arguments'>(url)</span>
+
+</div>
+<div class='description'>
+
+<p>Initializes the connection object to connect to the lambda API</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Parameter</td><td><table class="rdoc-list note-list"><tbody><tr><td class='label'>url</td><td>
+<p>The url to connect to</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-c-new-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-c-new-source'><span class="ruby-comment"># File src/server.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">url</span>)
+    <span class="ruby-ivar">@connection</span> = <span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>)
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<h2>Public Instance methods</h2>
+<div class='method public-instance' id='method-method-i-get_info'>
+<a name='method-i-get_info'></a>
+<div class='synopsis'>
+<span class='name'>get_info</span><span class='arguments'>(i)</span>
+
+</div>
+<div class='description'>
+
+<p>Parses the body being recieved by the get method to format it and make sure it works for the database</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Parameter</td><td><table class="rdoc-list note-list"><tbody><tr><td class='label'>i</td><td>
+<p>The quantity of info to be obtained</p>
+</td></tr></tbody></table>
+</td></tr><tr><td class='label'>Returns</td><td>
+<p>the data from the response or <code>nil</code> if the request </p>
+</td></tr></tbody></table>
+
+<p>isn&#39;t successful.</p>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-get_info-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-get_info-source'><span class="ruby-comment"># File src/server.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_info</span>(<span class="ruby-identifier">i</span>)
+    <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">get</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">req</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&#39;n&#39;</span>] = <span class="ruby-identifier">i</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span>.<span class="ruby-identifier">success?</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-identifier">errorMsg</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-string">&#39;error&#39;</span>)
+        <span class="ruby-identifier">p</span> <span class="ruby-identifier">errorMsg</span>
+        <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+<div class='method public-instance' id='method-method-i-post_info'>
+<a name='method-i-post_info'></a>
+<div class='synopsis'>
+<span class='name'>post_info</span><span class='arguments'>(body)</span>
+
+</div>
+<div class='description'>
+
+<p>Parses the body that will be sent by the post method to format it and make sure it works for the database</p>
+<table class="rdoc-list note-list"><tbody><tr><td class='label'>Parameter</td><td><table class="rdoc-list note-list"><tbody><tr><td class='label'>body</td><td>
+<p>The body of the http request to be sent </p>
+</td></tr></tbody></table>
+</td></tr><tr><td class='label'>Returns</td><td>
+<p>The body of the response or <code>nil</code> if the request fails</p>
+</td></tr></tbody></table>
+
+</div>
+<div class='source'>
+<a class='source-toggle' href='#' onclick='toggleCode(&#39;method-i-post_info-source&#39;); return false'>
+[show source]
+</a>
+<pre id='method-i-post_info-source'><span class="ruby-comment"># File src/server.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post_info</span>(<span class="ruby-identifier">body</span>)
+    <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">post</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span>.<span class="ruby-identifier">success?</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-identifier">errorMsg</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-string">&#39;error&#39;</span>)
+        <span class="ruby-identifier">p</span> <span class="ruby-identifier">errorMsg</span>
+        <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id='footer-push'></div>
+</div>
+<div id='footer'>
+<a href="https://github.com/jeremyevans/hanna-nouveau"><strong>Hanna Nouveau</strong> RDoc template</a>
+</div>
+</body>
+</html>
